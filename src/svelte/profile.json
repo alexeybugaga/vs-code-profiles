@@ -1,0 +1,9 @@
+{
+  "name": "M-Social Svelte v1",
+  "icon": "zap",
+  "layers": ["web"],
+  "extensions": [
+    { "id": "svelte.svelte-vscode", "displayName": "Svelte for VS Code" },
+    { "id": "huuums.vscode-fast-folder-structure", "displayName": "Folder Templates" }
+  ]
+}

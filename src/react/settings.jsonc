@@ -1,0 +1,84 @@
+// Настройки поверх shared/base.settings.jsonc и shared/file-nesting.jsonc.
+// Объекты сливаются по ключам (editor.codeActionsOnSave дополняется, а не заменяется).
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit"
+  },
+
+  // Folder Templates: генерация FSD-модулей (перенесено из регламента «Архитектурный подход»).
+  // Вызов: ПКМ по папке в Explorer → «Create New Templated Folder».
+  "folderTemplates.fileTemplates": {
+    "FSD: Компонент": [
+      "import clsx from \"clsx\";",
+      "",
+      "import styles from \"./<FTName | pascalcase>.module.scss\";",
+      "",
+      "export declare namespace <FTName | pascalcase> {",
+      "\ttype Props = {",
+      "\t\tclassName?: string;",
+      "\t};",
+      "}",
+      "",
+      "export function <FTName | pascalcase>({ className }: <FTName | pascalcase>.Props) {",
+      "\treturn <div className={clsx(styles.root, className)} />;",
+      "}"
+    ],
+    "FSD: Страница": [
+      "import clsx from \"clsx\";",
+      "",
+      "import styles from \"./<FTName | pascalcase>Page.module.scss\";",
+      "",
+      "export declare namespace <FTName | pascalcase>Page {",
+      "\ttype Props = {",
+      "\t\tclassName?: string;",
+      "\t};",
+      "}",
+      "",
+      "export function <FTName | pascalcase>Page({ className }: <FTName | pascalcase>Page.Props) {",
+      "\treturn <main className={clsx(styles.root, className)} />;",
+      "}"
+    ],
+    "FSD: Публичный API слайса": [
+      "export { <FTName | pascalcase> } from \"./ui/<FTName | pascalcase>\";"
+    ],
+    "FSD: Публичный API страницы": [
+      "export { <FTName | pascalcase>Page } from \"./ui/<FTName | pascalcase>Page\";"
+    ],
+    // Комментарий внутри блока нужен, чтобы Stylelint не ругался на пустой блок (block-no-empty)
+    "FSD: SCSS модуль": [".root {", "\t// стили компонента", "}"]
+  },
+  "folderTemplates.structures": [
+    {
+      "name": "FSD: Компонент (в сегменте ui)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | pascalcase>.tsx"],
+      "structure": [
+        { "fileName": "<FTName | pascalcase>.tsx", "template": "FSD: Компонент" },
+        { "fileName": "<FTName | pascalcase>.module.scss", "template": "FSD: SCSS модуль" }
+      ]
+    },
+    {
+      "name": "FSD: Слайс (entities/features/widgets)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | kebabcase>/ui/<FTName | pascalcase>.tsx"],
+      "structure": [
+        { "fileName": "<FTName | kebabcase>/index.ts", "template": "FSD: Публичный API слайса" },
+        { "fileName": "<FTName | kebabcase>/ui/<FTName | pascalcase>.tsx", "template": "FSD: Компонент" },
+        { "fileName": "<FTName | kebabcase>/ui/<FTName | pascalcase>.module.scss", "template": "FSD: SCSS модуль" }
+      ]
+    },
+    {
+      "name": "FSD: Страница (pages/views)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | kebabcase>-page/ui/<FTName | pascalcase>Page.tsx"],
+      "structure": [
+        { "fileName": "<FTName | kebabcase>-page/index.ts", "template": "FSD: Публичный API страницы" },
+        { "fileName": "<FTName | kebabcase>-page/ui/<FTName | pascalcase>Page.tsx", "template": "FSD: Страница" },
+        { "fileName": "<FTName | kebabcase>-page/ui/<FTName | pascalcase>Page.module.scss", "template": "FSD: SCSS модуль" }
+      ]
+    }
+  ]
+}

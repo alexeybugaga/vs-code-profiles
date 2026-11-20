@@ -1,0 +1,22 @@
+// Настройки поверх shared/ (слой web здесь не подключается: нет ESLint/Prettier/TS).
+// Основа — рекомендуемые настройки расширения Dart:
+// https://dartcode.org/docs/recommended-settings/
+{
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off",
+    // Применить исправления анализатора (dart fix) и упорядочить импорты при сохранении
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+
+  // Вертикальные направляющие вложенности виджетов в build()
+  "dart.previewFlutterUiGuides": true
+}

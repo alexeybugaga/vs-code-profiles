@@ -1,0 +1,5 @@
+[
+  { "id": "editorconfig.editorconfig", "displayName": "EditorConfig for VS Code" },
+  { "id": "streetsidesoftware.code-spell-checker", "displayName": "Code Spell Checker" },
+  { "id": "antfu.file-nesting", "displayName": "File Nesting Config" }
+]

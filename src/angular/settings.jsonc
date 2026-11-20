@@ -1,0 +1,6 @@
+// Настройки поверх shared/ и layers/web/.
+// Folder Templates здесь нет: компоненты, сервисы и т.д. генерирует Angular CLI (ng generate).
+{
+  // ESLint по умолчанию не проверяет HTML-шаблоны Angular
+  "eslint.validate": ["html"]
+}

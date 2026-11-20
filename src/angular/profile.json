@@ -1,0 +1,8 @@
+{
+  "name": "M-Social Angular v1",
+  "icon": "shield",
+  "layers": ["web"],
+  "extensions": [
+    { "id": "angular.ng-template", "displayName": "Angular Language Service" }
+  ]
+}

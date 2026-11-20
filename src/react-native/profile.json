@@ -1,0 +1,9 @@
+{
+  "name": "M-Social React Native v1",
+  "icon": "device-mobile",
+  "layers": ["web"],
+  "extensions": [
+    { "id": "expo.vscode-expo-tools", "displayName": "Expo Tools" },
+    { "id": "huuums.vscode-fast-folder-structure", "displayName": "Folder Templates" }
+  ]
+}

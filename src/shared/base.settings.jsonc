@@ -1,0 +1,14 @@
+// Базовые настройки для ВСЕХ стеков (включая Flutter).
+// Профиль — это личный слой. Всё, что зависит от конкретного проекта
+// (выбор форматтера, версия TypeScript/SDK, cssModules.camelCase),
+// задаётся в .code-workspace проекта и перекрывает профиль.
+{
+  "editor.formatOnSave": true,
+
+  // Переименование парного тега в JSX/HTML/шаблонах (заменяет плагин Auto Rename Tag).
+  "editor.linkedEditing": true,
+
+  // Не склеивать папки с одним вложением: иначе слои и сегменты
+  // в дереве превращаются в цепочки вида entities/user/model.
+  "explorer.compactFolders": false
+}

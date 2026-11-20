@@ -1,0 +1,70 @@
+// Настройки поверх shared/ и layers/web/.
+{
+  // Folder Templates: генерация FSD-модулей для Vue (SFC + <style module>).
+  // Вызов: ПКМ по папке в Explorer → «Create New Templated Folder».
+  "folderTemplates.fileTemplates": {
+    "FSD Vue: Компонент": [
+      "<script setup lang=\"ts\"></script>",
+      "",
+      "<template>",
+      "\t<div :class=\"$style.root\" />",
+      "</template>",
+      "",
+      "<style module>",
+      ".root {",
+      "\t/* стили компонента */",
+      "}",
+      "</style>"
+    ],
+    "FSD Vue: Страница": [
+      "<script setup lang=\"ts\"></script>",
+      "",
+      "<template>",
+      "\t<main :class=\"$style.root\" />",
+      "</template>",
+      "",
+      "<style module>",
+      ".root {",
+      "\t/* стили страницы */",
+      "}",
+      "</style>"
+    ],
+    "FSD Vue: Публичный API слайса": [
+      "export { default as <FTName | pascalcase> } from \"./ui/<FTName | pascalcase>.vue\";"
+    ],
+    "FSD Vue: Публичный API страницы": [
+      "export { default as <FTName | pascalcase>Page } from \"./ui/<FTName | pascalcase>Page.vue\";"
+    ]
+  },
+  "folderTemplates.structures": [
+    {
+      "name": "FSD Vue: Компонент (в сегменте ui)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | pascalcase>.vue"],
+      "structure": [
+        { "fileName": "<FTName | pascalcase>.vue", "template": "FSD Vue: Компонент" }
+      ]
+    },
+    {
+      "name": "FSD Vue: Слайс (entities/features/widgets)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | kebabcase>/ui/<FTName | pascalcase>.vue"],
+      "structure": [
+        { "fileName": "<FTName | kebabcase>/index.ts", "template": "FSD Vue: Публичный API слайса" },
+        { "fileName": "<FTName | kebabcase>/ui/<FTName | pascalcase>.vue", "template": "FSD Vue: Компонент" }
+      ]
+    },
+    {
+      "name": "FSD Vue: Страница (pages)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | kebabcase>-page/ui/<FTName | pascalcase>Page.vue"],
+      "structure": [
+        { "fileName": "<FTName | kebabcase>-page/index.ts", "template": "FSD Vue: Публичный API страницы" },
+        { "fileName": "<FTName | kebabcase>-page/ui/<FTName | pascalcase>Page.vue", "template": "FSD Vue: Страница" }
+      ]
+    }
+  ]
+}

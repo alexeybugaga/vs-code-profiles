@@ -1,0 +1,18 @@
+// Слой для стеков на JS/TS: React, React Native, Vue, Svelte, Angular.
+{
+  // Форматтер по умолчанию. Проекты на oxfmt переопределяют его языковыми блоками
+  // в своём .code-workspace — поэтому здесь НЕ используем блоки вида "[typescriptreact]".
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Автофиксы срабатывают, только если инструмент установлен в проекте.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.oxc": "explicit"
+  },
+
+  // Пути импортов чинятся при переносе файлов без лишнего вопроса.
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+
+  // Предлагать версию TypeScript из node_modules проекта.
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true
+}

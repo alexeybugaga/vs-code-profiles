@@ -1,0 +1,10 @@
+{
+  "name": "M-Social React v1",
+  "icon": "globe",
+  "layers": ["web"],
+  "extensions": [
+    { "id": "stylelint.vscode-stylelint", "displayName": "Stylelint" },
+    { "id": "clinyong.vscode-css-modules", "displayName": "CSS Modules" },
+    { "id": "huuums.vscode-fast-folder-structure", "displayName": "Folder Templates" }
+  ]
+}

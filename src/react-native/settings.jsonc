@@ -1,0 +1,82 @@
+// Настройки поверх shared/base.settings.jsonc и shared/file-nesting.jsonc.
+// Стили в React Native — через StyleSheet в файле компонента, поэтому
+// Stylelint и CSS Modules здесь не нужны.
+{
+  // Folder Templates: генерация FSD-модулей для React Native.
+  // ЧЕРНОВИК: шаблоны собраны по аналогии с веб-версией, проверьте на реальном проекте.
+  "folderTemplates.fileTemplates": {
+    "FSD RN: Компонент": [
+      "import { StyleSheet, View, type StyleProp, type ViewStyle } from \"react-native\";",
+      "",
+      "export declare namespace <FTName | pascalcase> {",
+      "\ttype Props = {",
+      "\t\tstyle?: StyleProp<ViewStyle>;",
+      "\t};",
+      "}",
+      "",
+      "export function <FTName | pascalcase>({ style }: <FTName | pascalcase>.Props) {",
+      "\treturn <View style={[styles.root, style]} />;",
+      "}",
+      "",
+      "const styles = StyleSheet.create({",
+      "\troot: {},",
+      "});"
+    ],
+    "FSD RN: Страница": [
+      "import { StyleSheet, View, type StyleProp, type ViewStyle } from \"react-native\";",
+      "",
+      "export declare namespace <FTName | pascalcase>Page {",
+      "\ttype Props = {",
+      "\t\tstyle?: StyleProp<ViewStyle>;",
+      "\t};",
+      "}",
+      "",
+      "export function <FTName | pascalcase>Page({ style }: <FTName | pascalcase>Page.Props) {",
+      "\treturn <View style={[styles.root, style]} />;",
+      "}",
+      "",
+      "const styles = StyleSheet.create({",
+      "\troot: {",
+      "\t\tflex: 1,",
+      "\t},",
+      "});"
+    ],
+    "FSD RN: Публичный API слайса": [
+      "export { <FTName | pascalcase> } from \"./ui/<FTName | pascalcase>\";"
+    ],
+    "FSD RN: Публичный API страницы": [
+      "export { <FTName | pascalcase>Page } from \"./ui/<FTName | pascalcase>Page\";"
+    ]
+  },
+  "folderTemplates.structures": [
+    {
+      "name": "FSD RN: Компонент (в сегменте ui)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | pascalcase>.tsx"],
+      "structure": [
+        { "fileName": "<FTName | pascalcase>.tsx", "template": "FSD RN: Компонент" }
+      ]
+    },
+    {
+      "name": "FSD RN: Слайс (entities/features/widgets)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | kebabcase>/ui/<FTName | pascalcase>.tsx"],
+      "structure": [
+        { "fileName": "<FTName | kebabcase>/index.ts", "template": "FSD RN: Публичный API слайса" },
+        { "fileName": "<FTName | kebabcase>/ui/<FTName | pascalcase>.tsx", "template": "FSD RN: Компонент" }
+      ]
+    },
+    {
+      "name": "FSD RN: Страница (pages)",
+      "omitParentDirectory": true,
+      "overwriteExistingFiles": "prompt",
+      "openFilesWhenDone": ["<FTName | kebabcase>-page/ui/<FTName | pascalcase>Page.tsx"],
+      "structure": [
+        { "fileName": "<FTName | kebabcase>-page/index.ts", "template": "FSD RN: Публичный API страницы" },
+        { "fileName": "<FTName | kebabcase>-page/ui/<FTName | pascalcase>Page.tsx", "template": "FSD RN: Страница" }
+      ]
+    }
+  ]
+}

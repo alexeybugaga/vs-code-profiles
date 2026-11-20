@@ -1,0 +1,9 @@
+{
+  "name": "M-Social Vue v1",
+  "icon": "flame",
+  "layers": ["web"],
+  "extensions": [
+    { "id": "vue.volar", "displayName": "Vue (Official)" },
+    { "id": "huuums.vscode-fast-folder-structure", "displayName": "Folder Templates" }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "M-Social Flutter v1",
+  "icon": "rocket",
+  "extensions": [
+    { "id": "dart-code.dart-code", "displayName": "Dart" },
+    { "id": "dart-code.flutter", "displayName": "Flutter" }
+  ]
+}

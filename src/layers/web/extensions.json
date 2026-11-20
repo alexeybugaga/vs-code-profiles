@@ -1,0 +1,6 @@
+[
+  { "id": "dbaeumer.vscode-eslint", "displayName": "ESLint" },
+  { "id": "esbenp.prettier-vscode", "displayName": "Prettier - Code formatter" },
+  { "id": "oxc.oxc-vscode", "displayName": "Oxc" },
+  { "id": "yoavbls.pretty-ts-errors", "displayName": "Pretty TypeScript Errors" }
+]
